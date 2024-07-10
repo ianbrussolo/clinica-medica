@@ -14,6 +14,18 @@ public class Consulta {
     @Column(name = "idcon", nullable = false)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "crm", referencedColumnName = "crm", nullable = false)
+    private Medico medico;
+
+    @ManyToOne
+    @JoinColumn(name = "idesp", referencedColumnName = "idesp", nullable = false)
+    private Especialidade especialidade;
+
+    @ManyToOne
+    @JoinColumn(name = "idpac", referencedColumnName = "idpac", nullable = false)
+    private Paciente paciente;
+
     @Column(name = "data")
     private LocalDate data;
 
@@ -38,6 +50,30 @@ public class Consulta {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     public LocalDate getData() {
@@ -87,5 +123,4 @@ public class Consulta {
     public void setFormapagamento(String formapagamento) {
         this.formapagamento = formapagamento;
     }
-
 }

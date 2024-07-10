@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "diagnostica", schema = "climed")
 public class Diagnostica {
-    @SequenceGenerator(name = "diagnostica_id_gen", sequenceName = "consulta_idcon_seq", allocationSize = 1)
+    @SequenceGenerator(name = "diagnostica_id_gen", sequenceName = "diagnostica_idcon_seq", allocationSize = 1)
     @EmbeddedId
     private DiagnosticaId id;
 

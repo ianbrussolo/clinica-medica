@@ -7,14 +7,15 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 @Table(name = "exerceesp", schema = "climed")
 public class Exerceesp {
+    @SequenceGenerator(name = "exerceesp_id_gen", sequenceName = "exerceesp_idcon_seq", allocationSize = 1)
     @EmbeddedId
     private ExerceespId id;
 
-    @MapsId("idesp")
+    /*@MapsId("idesp")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "idesp", nullable = false)
-    private Especialidade idesp;
+    private Especialidade idesp;*/
 
     public ExerceespId getId() {
         return id;
@@ -22,14 +23,6 @@ public class Exerceesp {
 
     public void setId(ExerceespId id) {
         this.id = id;
-    }
-
-    public Especialidade getIdesp() {
-        return idesp;
-    }
-
-    public void setIdesp(Especialidade idesp) {
-        this.idesp = idesp;
     }
 
 }

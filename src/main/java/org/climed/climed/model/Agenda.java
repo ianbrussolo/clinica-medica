@@ -1,6 +1,8 @@
 package org.climed.climed.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalTime;
 
@@ -21,6 +23,11 @@ public class Agenda {
 
     @Column(name = "horafim", nullable = false)
     private LocalTime horafim;
+
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "crm", nullable = false)
+    private Medico medico;
 
     public Integer getId() {
         return id;
@@ -52,6 +59,14 @@ public class Agenda {
 
     public void setHorafim(LocalTime horafim) {
         this.horafim = horafim;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
 }

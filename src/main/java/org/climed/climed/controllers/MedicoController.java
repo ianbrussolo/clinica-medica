@@ -1,5 +1,6 @@
-package org.climed.climed.controller;
+package org.climed.climed.controllers;
 
+import org.climed.climed.exception.ResourceNotFoundException;
 import org.climed.climed.model.Medico;
 import org.climed.climed.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,12 @@ public class MedicoController {
     @GetMapping
     public List<Medico> getAllMedicos() {
         return medicoRepository.findAll();
+    }
+
+    @GetMapping("/{crm}")
+    public Medico getMedico(String crm) throws ResourceNotFoundException {
+        return medicoRepository.findById(crm)
+                .orElseThrow(() -> new ResourceNotFoundException("Medico not found with crm: " + crm));
     }
 
     @PostMapping

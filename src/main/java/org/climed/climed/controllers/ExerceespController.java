@@ -1,4 +1,4 @@
-package org.climed.climed.controller;
+package org.climed.climed.controllers;
 
 import org.climed.climed.model.Exerceesp;
 import org.climed.climed.repository.ExerceespRepository;
